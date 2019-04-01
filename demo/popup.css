@@ -1,0 +1,213 @@
+.img_pop_up {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    padding-top:52px;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.562);
+	z-index: 100;
+}
+
+.img_pop_up>.cut_img {
+    width: calc(100% - 5px);
+    height: calc(100% - 114px);
+    margin: 0 auto;
+}
+
+.confirm_button {
+    width: 100%;
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0.705);
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+
+
+.confirm_button>.rotate_div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.confirm_button>.rotate_div>button,
+.cancel_choose,
+.confirm_choose {
+    width: 70px;
+    height: 30px;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    background: rgb(245, 165, 68);
+}
+
+.cancel_choose,
+.confirm_choose {
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.cancel_choose {
+    left: 0;
+    margin-left: 18px;
+}
+
+.confirm_choose {
+    right: 0;
+    margin-right: 18px;
+}
+
+/* 根据文档样式需求 */
+.picture_div>input {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/*边框线*/
+.line-e,
+.line-n,
+.line-w,
+.line-s{
+    width: 0px !important;
+    height:0px !important;
+    box-sizing: border-box;
+}
+/*右下角方块大小*/
+.point-se {
+    width:5px !important;
+    height:5px !important;
+}
+/*线宽度*/
+.cropper-view-box{
+    outline:3px solid #39f !important;
+    z-index: 99999999 !important;
+}
+.cut_img{
+    z-index: 99999999 !important;
+}
+/*加长边框线*/
+/*上*/
+.cropper-point.point-n {
+    cursor: n-resize;
+    margin-left: -20px;
+    top: -20px;
+    left: 0px;
+    width: calc(100% + 40px);
+    height: 50px;
+    opacity: 0; 
+    z-index: 99999999;
+}
+/*左上*/
+.cropper-point.point-nw {
+    cursor: nw-resize;
+    left: -20px;
+    top: -20px;
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+    z-index: 99999999;
+}
+/*右*/
+.cropper-point.point-e {
+    cursor: e-resize;
+    height: calc(100% + 40px);
+    margin-top: -20px;
+    right: -20px;
+    top: 0;
+    width: 50px;
+     opacity: 0; 
+    z-index: 99999999;
+}
+/*右上*/
+.cropper-point.point-ne {
+    cursor: ne-resize;
+    right: -20px;
+    top: -20px;
+    width: 50px;
+    height: 50px;
+     opacity: 0; 
+    z-index: 99999999;
+}
+/*下*/
+.cropper-point.point-s {
+    width: calc(100% + 40px);
+    bottom: -20px;
+    cursor: s-resize;
+    left: -20px;
+    margin-left: 0px;
+    height: 50px;
+     opacity: 0; 
+    z-index: 99999999;
+}
+/*右下*/
+.cropper-point.point-se:before {
+    background-color: #39f;
+    content: " ";
+    display: block;
+    height: 50px;
+    position: absolute;
+    right: -17px;
+    width: 50px;
+    bottom: -17px;
+     opacity: 0; 
+    z-index: 99999999;
+}
+/*左*/
+.cropper-point.point-w {
+    cursor: w-resize;
+    left: -20px;
+    margin-top: -20px;
+    top: 0;
+    height: calc(100% + 40px);
+    width: 50px;
+     opacity: 0; 
+    z-index: 99999999;
+}
+/*坐下*/
+.cropper-point.point-sw {
+    bottom: -20px;
+    cursor: sw-resize;
+    left: -20px;
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+    z-index: 99999999;
+}
+/* html 样式 */
+	.imageup{
+			width:40px;
+			height:40px;
+			position:relative;
+		}
+		
+		.inputbtn{
+			width:100px;
+			position:relative;
+		}
+		.picture_div {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			opacity: 0;
+			overflow: hidden;
+		}
+		.imageup > img{
+			display: block;
+			width:100%;
+			margin: auto;
+		}
+		.cropper-canvas{
+			margin: 0 2px;
+		}
+		/* 覆盖弹出框样式 */
+		.mask{
+			position: absolute;
+    		left: -2000px;
+		}

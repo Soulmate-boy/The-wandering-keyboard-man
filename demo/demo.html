@@ -1,0 +1,99 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>移动端图片裁剪，直接复制可用</title>
+
+    <link rel="stylesheet" href="./cropper.min.css">
+    <link rel="stylesheet" href="./popup.css">
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="cropper.js"></script>
+    <script src="popup.js"></script>
+
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <!-- ipt框1 -->
+        <div class="picture_div">
+            <!-- 替换成需要的id -->
+            <input type="file" id="fileTest" accept="image/*">
+            <!-- 预览使用的标签 -->
+            <img id="img" src="" alt="">
+        </div>
+    </div>
+
+
+
+
+    <!-- 2018-wu+ -->
+    <!-- 弹出层 -->
+    <div class="img_pop_up" style="display:none;">
+        <div class="cut_img">
+            <img id="imgTest" src="" alt="">
+        </div>
+        <div class="confirm_button">
+            <button class="cancel_choose">取消</button>
+            <div class="rotate_div">
+                <button class="rotate_left">向左旋转</button>
+                <button class="rotate_right">向右旋转</button>
+            </div>
+            <button class="confirm_choose">确定</button>
+        </div>
+    </div>
+
+
+    <script>
+        $(function () {
+
+            var $fileTest = $("#fileTest"), //ipt输入框
+
+                $imgTest = $("#imgTest"), //img
+                $img_pop_up = $(".img_pop_up"), //弹出层
+                $picture_div = $(".picture_div"), //ipt输入框
+                $confirm_choose = $(".confirm_choose"), //确定
+                $cancel_choose = $(".cancel_choose"), //取消
+                $rotate_left = $(".rotate_left"), //向左旋转
+                $rotate_right = $(".rotate_right"), //向右旋转
+                ratio = '1/1', //上传比例
+                store = '0.9', //剪裁面积大小（百分比）和图片进行对比
+                task = false; //	是否拖动剪裁框
+            $fileTest.click(function () {
+                // ToString()括号内是参数，可根据自己需求进行传参，参数配置在popup.js.js有说明
+                ToString($fileTest, $imgTest, $img_pop_up, $confirm_choose, $cancel_choose, $rotate_left,
+                    $rotate_right, '1/1', store, task,
+                    function (data) {//这里的fn是使用ajax上传返回的回调
+                        console.log(data)
+                        // 传回的数据是bast64串
+                        // 此处进行处理就ok，在这里不再进行演示了。
+                        // $("#img").attr('src', data)
+                        
+                    })
+
+            })
+
+            // 点击删除
+            $(".img-container ").on('click', '.xxx', function () {
+                $(this).parent('li').remove();
+            })
+        })
+    </script>
+
+
+
+
+
+
+
+</body>
+
+</html>
